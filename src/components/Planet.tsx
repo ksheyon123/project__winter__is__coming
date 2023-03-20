@@ -1,20 +1,18 @@
 import React, { useRef, RefObject, useEffect } from "react";
 import styled from "styled-components";
-import { usePlanet } from "@src/hooks/usePlanet";
+import { Canvas } from "@react-three/fiber";
 
 const Planet: React.FC = () => {
   const divEl = useRef<HTMLDivElement>(null);
-  const { initPlanet } = usePlanet();
-
-  useEffect(() => {
-    const { current } = divEl;
-    if (current) {
-      initPlanet(current);
-    }
-  }, [divEl]);
 
   return (
-    <StyledPlanet ref={divEl as RefObject<HTMLDivElement>} />
+    <StyledPlanet ref={divEl as RefObject<HTMLDivElement>}>
+      <Canvas>
+        <mesh>
+
+        </mesh>
+      </Canvas>
+    </StyledPlanet>
   )
 }
 

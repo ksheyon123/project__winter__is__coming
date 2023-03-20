@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import * as THREE from "three";
 
 const usePlanet = () => {
   const [renderer, setRenderer] = useState<any>();
