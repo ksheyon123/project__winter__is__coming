@@ -2,17 +2,22 @@
   "name": "project__winter__is__coming",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "main": "electron/main.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron": "electron ."
   },
   "dependencies": {
+    "@types/styled-components": "^5.1.26",
     "electron": "^23.1.4",
+    "electron-is-dev": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.9.0"
+    "react-router-dom": "^6.9.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
