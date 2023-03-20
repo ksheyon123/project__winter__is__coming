@@ -1,0 +1,1 @@
+export { Planet } from "@src/components/Planet";
