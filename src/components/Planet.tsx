@@ -1,22 +1,24 @@
-import React, { useRef } from "react";
+import React, { useRef, RefObject, useEffect } from "react";
 import styled from "styled-components";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { usePlanet } from "@src/hooks/usePlanet";
 
 const Planet: React.FC = () => {
-  const mesh = useRef<any>(null);
+  const divEl = useRef<HTMLDivElement>(null);
+  const { initPlanet } = usePlanet();
+
+  useEffect(() => {
+    const { current } = divEl;
+    if (current) {
+      initPlanet(current);
+    }
+  }, [divEl]);
+
   return (
-    <StyledView>
-      <Canvas className="canvas">
-        <mesh ref={mesh} scale={1}>
-          <cylinderBufferGeometry color="red" args={[1, 1, 0.3, 50]} />
-          <meshLambertMaterial attach="material" />
-        </mesh>
-      </Canvas>
-    </StyledView>
+    <StyledPlanet ref={divEl as RefObject<HTMLDivElement>} />
   )
 }
 
-const StyledView = styled.div`
+const StyledPlanet = styled.div`
   width: 100%;
   height: 100%;
 `;
